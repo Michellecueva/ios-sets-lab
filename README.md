@@ -13,6 +13,22 @@ Input: heights of trees below:
 Output:
 `169.375`
 
+``` swift
+
+var heights: Set <Double> = [161, 182, 161, 154, 176, 170, 167, 171, 170, 174]
+
+var sum: Double = 0
+
+var numOfHeights = Double(heights.count)
+
+for i in heights {
+    sum += i
+}
+
+print(sum/numOfHeights)
+
+```
+
 
 ## Question 2
 
@@ -20,6 +36,24 @@ Determine if a String is a pangram. A pangram is a string that contains every le
 
  e.g `"The quick brown fox jumps over the lazy dog"` is a pangram
  e.g `"The quick brown fox jumped over the lazy dog"` is NOT a pangram
+ 
+ ``` swift
+ 
+ var alphabet: Set <Character> = ["q","w","e","r","t","y","u","i","o","p","l","k","j","h","g","f","d","s","a","z","x","c","v","b","n","m"]
+ 
+ var sent = "The quick brown fox jumps over the lazy dog"
+ 
+ var sentSet = Set(sent.lowercased().replacingOccurrences(of: " ", with: ""))
+ 
+ 
+ if alphabet == sentSet {
+    print(" This is a pangram")
+ } else {
+    print(" This is not a pangram")
+ }
+
+ 
+ ```
 
 
 ## Question 3
@@ -39,6 +73,41 @@ You are given an array `nums` representing the data status of the set S after th
  Example 3:
  Input: `nums = [2,2]`
  Output: `[2,1]`
+ 
+ ``` swift 
+ 
+ var nums = [2,2]
+ 
+ var nums2: [Int] = []
+ 
+ 
+ for i in 1...nums.count {
+ nums2.append(i)
+ }
+ 
+ var singlenum: Set <Int> = []
+ 
+ var duplicate: Set <Int> = []
+ 
+ for i in nums {
+ if !singlenum.contains(i) {
+ singlenum.insert(i)
+ } else {
+ duplicate.insert(i)
+ }
+ }
+ 
+ var numSet = Set(nums)
+ 
+ var nums2Set = Set(nums2)
+ 
+ var diff = nums2Set.symmetricDifference(numSet)
+ 
+ var unionSet = diff.union(duplicate)
+ 
+ print(unionSet)
+ 
+ ```
 
 
 ## Question 4
@@ -50,6 +119,17 @@ let arr1 = [2, 4, 5, 6, 8, 10, 12]
 let arr2 = [1, 2, 3, 4, 5, 6]
 let arr3 = [5, 6, 7, 8, 9, 10, 11, 12]
 let arr4 = [1, 3, 4, 5, 6, 7, 9]
+
+var arr1Set = Set(arr1)
+var arr2Set = Set(arr2)
+var arr3Set = Set(arr3)
+var arr4Set = Set(arr4)
+
+var unionSet1 = arr1Set.union(arr2Set)
+var unionSet2 = arr3Set.union(arr4Set)
+var arr5 = unionSet1.union(unionSet2).sorted()
+
+print(arr5)
 ```
 
 
@@ -91,12 +171,15 @@ print(spaceships.count)
 - 1
 - This code will compile but crash
 
+Answer: This code will not compile because that is not how you declare a set.
+
 
 ## Question 7
 
 What output will be produced by the code below?
 
 ```swift
+
 var spaceships1 = Set()
 
 spaceships1.insert("Serenity")
@@ -117,3 +200,5 @@ if spaceships1.isSubset(of: spaceships2) {
 - This code will not compile
 - "This is a subset"
 - Nothing will be output
+
+Answer: This code will not compile because that is not how you declare a set.
