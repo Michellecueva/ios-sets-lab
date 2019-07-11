@@ -82,7 +82,7 @@ You are given an array `nums` representing the data status of the set S after th
  
  
  for i in 1...nums.count {
- nums2.append(i)
+    nums2.append(i)
  }
  
  var singlenum: Set <Int> = []
@@ -90,11 +90,11 @@ You are given an array `nums` representing the data status of the set S after th
  var duplicate: Set <Int> = []
  
  for i in nums {
- if !singlenum.contains(i) {
- singlenum.insert(i)
- } else {
- duplicate.insert(i)
- }
+    if !singlenum.contains(i) {
+        singlenum.insert(i)
+    } else {
+        duplicate.insert(i)
+    }
  }
  
  var numSet = Set(nums)
@@ -130,6 +130,7 @@ var unionSet2 = arr3Set.union(arr4Set)
 var arr5 = unionSet1.union(unionSet2).sorted()
 
 print(arr5)
+
 ```
 
 
@@ -145,6 +146,18 @@ Perform the following set operations on the lists below:
 ```swift
 let list1: Set = [1, 3, 4, 6, 2, 7, 9]
 let list2: Set = [3, 7, 13, 10, 4]
+
+var intersect = list1.intersection(list2)
+print(intersect)
+
+var diff = list1.symmetricDifference(list2)
+print(diff)
+
+var union = list1.union(list2)
+print(union)
+
+var subtract = list1.subtracting(list2)
+print(subtract)
 ```
 
 
